@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YumYum พาทัว - สินค้าทั้งหมด</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffdd00;
+        }
+
+        .navbar,
+        .btn-yellow {
+            background-color: #ffdd00;
+            color: #121212;
+            font-weight: bold;
+        }
+
+        .btn-yellow:hover {
+            background-color: #e6c200;
+            color: #121212;
+        }
+
+        .product-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            color: #ffdd00;
+            text-decoration: none;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            background-color: #333300;
+            color: #ffdd00;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #ffdd00;">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html"
+                style="color: #121212; font-weight: bold;">
+                <img src="image/logo.png" alt="YumYum พาทัว" style="height: 80px; margin-right: 15px;" />
+                <span style="font-size: 2rem;"></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="products.html">สินค้าทั้งหมด</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="topup.html">เติมเงิน</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="contact.html">ติดต่อ</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="faq.html">คำถามที่พบบ่อย</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="text-center mb-4" id="page-title">สินค้าทั้งหมด</h1>
+        <div class="row g-4" id="product-list">
+        </div>
+    </main>
+
+    <script>
+        const products = [
+            { id: 1, name: "Capybara", category: "games", price: 50, img: "image/captbara.png" },
+            { id: 2, name: "Starfish", category: "games", price: 20, img: "image/starfish.png" },
+            { id: 3, name: "tomato", category: "garden", price: 15, img: "image/tomato.webp" },
+            { id: 4, name: "Grandmaster Sprinkler", category: "accessories", price: 100, img: "image/grandmaster.png" },
+            { id: 5, name: "Master Sprinkler", category: "accessories", price: 80, img: "image/master.png" },
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryFilter = urlParams.get('category');
+
+        const productList = document.getElementById('product-list');
+        const pageTitle = document.getElementById('page-title');
+
+        let filteredProducts = products;
+
+        if (categoryFilter) {
+            filteredProducts = products.filter(p => p.category === categoryFilter);
+            pageTitle.textContent = `สินค้าหมวดหมู่: ${categoryFilter}`;
+        }
+
+        filteredProducts.forEach(product => {
+            const col = document.createElement('div');
+            col.className = 'col-md-4';
+
+            col.innerHTML = `
+        <a href="#" class="product-card d-block p-3">
+          <img src="${product.img}" alt="${product.name}" class="img-fluid rounded mb-3" />
+          <h5>${product.name}</h5>
+          <p>ราคา: ${product.price} บาท</p>
+        </a>
+      `;
+
+            productList.appendChild(col);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

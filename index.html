@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YumYum พาทัว - หน้าแรก</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffdd00;
+        }
+
+        .navbar,
+        .btn-yellow {
+            background-color: #ffdd00;
+            color: #121212;
+            font-weight: bold;
+        }
+
+        .btn-yellow:hover {
+            background-color: #e6c200;
+            color: #121212;
+        }
+
+        .category-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            background-color: #333300;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #ffdd00;">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html"
+                style="color: #121212; font-weight: bold;">
+                <img src="image/logo.png" alt="YumYum พาทัว" style="height: 80px; margin-right: 15px;" />
+                <span style="font-size: 2rem;"></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="products.html">สินค้าทั้งหมด</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="topup.html">เติมเงิน</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="contact.html">ติดต่อ</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="faq.html">คำถามที่พบบ่อย</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <main class="container py-5">
+        <h1 class="text-center mb-5">หมวดหมู่ ของใน grow a garden</h1>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="products.html?category=games" class="text-decoration-none">
+                    <div class="category-card p-4 text-center">
+                        <img src="image/animals.avif" alt="หมวดหมู่ สัตว์" class="img-fluid rounded" />
+                        <div class="category-title">Animals</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="products.html?category=garden" class="text-decoration-none">
+                    <div class="category-card p-4 text-center">
+                        <img src="image/fruit.avif" alt="หมวดหมู่ ผัก" class="img-fluid rounded" />
+                        <div class="category-title">Fruit</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="products.html?category=accessories" class="text-decoration-none">
+                    <div class="category-card p-4 text-center">
+                        <img src="image/Gear.webp" alt="หมวดหมู่ ไอเทม" class="img-fluid rounded" />
+                        <div class="category-title">Gear</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
